@@ -16,14 +16,13 @@ class ContactPage extends Component {
     if (contacts && contacts.length) {
       this.setState({ contacts });
     }
-
-    console.log('componentDidMount');
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
     const { contacts } = this.state;
-    localStorage.setItem('contacts', JSON.stringify(contacts));
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
   }
 
   addContact = data => {
