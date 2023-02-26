@@ -38,9 +38,9 @@ class ContactPage extends Component {
     });
   };
 
-  handleRemove = name => {
+  handleRemove = id => {
     this.setState(prevState => {
-      const newState = prevState.contacts.filter(item => item.name !== name);
+      const newState = prevState.contacts.filter(item => item.id !== id);
       return { contacts: newState };
     });
   };
